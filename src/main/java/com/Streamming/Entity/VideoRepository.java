@@ -1,5 +1,6 @@
 package com.Streamming.Entity;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface VideoRepository extends CrudRepository<Video,Long> {
-    Optional<Video> findByTitle(String name);
+    List<Video> findByTitleContaining(String name);
 
-    List<Video> findAll();
+    List<Video> findAll(Sort like);
 }

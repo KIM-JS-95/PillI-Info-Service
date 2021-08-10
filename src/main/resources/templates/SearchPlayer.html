@@ -6,10 +6,13 @@
     <link href="https://cdn.bootcss.com/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./css/sidebar.css">
+    <link rel="stylesheet" href="./css/position.css">
 </head>
 
 <body id="body-pd">
+
 <!--네비게이션 바-->
 <div class="l-navbar" id="navbar">
     <nav class="nav">
@@ -77,14 +80,16 @@
     </nav>
 </div>
 
-<span class="main_title">
-<div class="main_list">
-    <video controls loop autoplay muted>
-        <source th:src=${search.path} type="video/mp4">
-    </video>
-        <div><span th:text=${search.title}></span><tr><span th:text=${search.like}></span></tr></div>
+<div class="grid-image">
+    <div class="main_1 main_common" th:each="vod : ${search}">
+        <video controls width="320" height="200" loop autoplay muted>
+            <source th:src=${vod.path} type="video/mp4">
+        </video>
+        <strong><div th:text=${vod.title}></div></strong>
+        <strong><div th:text=${vod.like}></div></strong>
+    </div>
 </div>
-</span>
+
 
 
 <!-- Javascript of Bootstrap  -->
@@ -98,18 +103,9 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
+<!-- 사이드 바-->
+<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+<script src="/js/main.js"></script>
+
 </body>
-
-
-
-<style>
-.main_list{
-	text-align: center;
-	width: 540px;
-	 height:300px;
-}
-
-</style>
-
-
 </html>

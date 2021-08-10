@@ -90,26 +90,27 @@
 <span class="main_title">
     <div class="main_list">
     <video controls width="320" height="200" loop autoplay muted>
-        <source src="http://localhost:8080/video/1?format=mp4" type="video/mp4">
+        <source th:src=${Vod.path} type="video/mp4">
     </video>
+     <strong><div th:text=${Vod.title}></div></strong>
+    <strong><div th:text=${Vod.like}></div></strong>
 
-            <div><h4>동영상 제목</h4></div>
-            <div>
-                <button class="like_button">
-                <lottie-player src="./image/like.json" background="transparent" speed="1" loop autoplay></lottie-player>
-                </button>
-        	</div>
     </div>
 </span>
 
 
+<!-- -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;5;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
 
 <h1> 모든 동영상</h1>
-
 <div class="grid-image">
-    <video controls width="320" height="200" loop autoplay muted><source src="http://localhost:8080/video/4?format=mp4" type="video/mp4"></video>
-    <video controls width="320" height="200" loop autoplay muted><source src="http://localhost:8080/video/4?format=mp4" type="video/mp4"></video>
-    <video controls width="320" height="200" loop autoplay muted><source src="http://localhost:8080/video/4?format=mp4" type="video/mp4"></video>
+    <div class="main_1 main_common" th:each="vod : ${VodList}">
+    <video controls width="320" height="200" loop autoplay muted>
+        <source th:src=${vod.path} type="video/mp4">
+    </video>
+    <strong><div th:text=${vod.title}></div></strong>
+    <strong><div th:text=${vod.like}></div></strong>
+</div>
 </div>
 
 
@@ -137,6 +138,7 @@
 
 <!-- JS -->
 <script src="./js/main.js"></script>
+
 <!--<script src="./js/lottie.js"></script>-->
 
 <!--lotti Player-->
