@@ -1,6 +1,0 @@
-com/Streamming/controller/ApiExplorer.java
- com.Streamming.controller.ApiExplorer
-com/Streamming/controller/PillController.java
- com.Streamming.controller.PillController
-com/Streamming/App.java
- com.Streamming.App
