@@ -1,11 +1,6 @@
+com/Streamming/controller/ApiExplorer.java
+ com.Streamming.controller.ApiExplorer
+com/Streamming/controller/PillController.java
+ com.Streamming.controller.PillController
 com/Streamming/App.java
  com.Streamming.App
-com/Streamming/Entity/Video.java
- com.Streamming.Entity.Video
- com.Streamming.Entity.Video$VideoBuilder
-com/Streamming/controller/VideoRestController.java
- com.Streamming.controller.VideoRestController
-com/Streamming/controller/VideoController.java
- com.Streamming.controller.VideoController
-com/Streamming/Entity/VideoRepository.java
- com.Streamming.Entity.VideoRepository
