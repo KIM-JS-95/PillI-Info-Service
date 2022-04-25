@@ -1,21 +1,21 @@
 package com.Streamming.controller;
 
 
+import com.Streamming.Entity.QueryEntity;
+import net.minidev.json.JSONObject;
+import net.minidev.json.parser.JSONParser;
+import net.minidev.json.parser.ParseException;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-
+import javax.validation.Valid;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.io.BufferedReader;
 import java.io.IOException;
+
 
 @RestController
 public class PillController {
@@ -23,22 +23,20 @@ public class PillController {
     @Value("${medic.client.Encoding}")
     private String Encodingkey;
 
+    @Value("${medic.client.Decoding}")
+    private String Decodingkey;
+
     @Value("${pillUrl}")
     private String PillUrl;
 
-    @GetMapping("/")
-    public void Search() throws IOException {
+
+    @RequestMapping(value = "/mypill", method = RequestMethod.POST)
+    public JSONObject Search(@RequestBody @Valid QueryEntity queryEntity) throws IOException, ParseException {
         StringBuilder urlBuilder = new StringBuilder(PillUrl); /*URL*/
 
-        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + Encodingkey); /*Service Key*/
-        urlBuilder.append("&" + URLEncoder.encode("item_name","UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*품목명*/
-        urlBuilder.append("&" + URLEncoder.encode("entp_name","UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*업체명*/
-        urlBuilder.append("&" + URLEncoder.encode("item_seq","UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*품목일련번호*/
-        urlBuilder.append("&" + URLEncoder.encode("img_regist_ts","UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*약학정보원 이미지 생성일*/
-        urlBuilder.append("&" + URLEncoder.encode("pageNo","UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); /*페이지번호*/
-        urlBuilder.append("&" + URLEncoder.encode("numOfRows","UTF-8") + "=" + URLEncoder.encode("3", "UTF-8")); /*한 페이지 결과 수*/
-        urlBuilder.append("&" + URLEncoder.encode("edi_code","UTF-8") + "=" + URLEncoder.encode("", "UTF-8")); /*보험코드*/
-        urlBuilder.append("&" + URLEncoder.encode("type","UTF-8") + "=" + URLEncoder.encode("xml", "UTF-8")); /*응답데이터 형식(xml/json) default : xml*/
+        urlBuilder.append("?" + URLEncoder.encode("serviceKey","UTF-8") + "=" + Encodingkey); /*Service Key*/
+        urlBuilder.append("&" + URLEncoder.encode("item_name","UTF-8") + "=" + URLEncoder.encode(queryEntity.getPillName(), "UTF-8")); /*품목명*/
+        urlBuilder.append("&" + URLEncoder.encode("type","UTF-8") + "=" + URLEncoder.encode("json", "UTF-8")); /*응답데이터 형식(xml/json) default : xml*/
 
         URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -51,6 +49,7 @@ public class PillController {
         } else {
             rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
         }
+
         StringBuilder sb = new StringBuilder();
         String line;
         while ((line = rd.readLine()) != null) {
@@ -58,7 +57,13 @@ public class PillController {
         }
         rd.close();
         conn.disconnect();
-        System.out.println(sb.toString());
+        System.out.println(sb);
+
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(sb.toString());
+        JSONObject jsonObj = (JSONObject) obj;
+
+        return jsonObj;
     }
 }
 
