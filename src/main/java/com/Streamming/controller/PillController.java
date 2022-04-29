@@ -1,7 +1,10 @@
 package com.Streamming.controller;
 
 
+import com.Streamming.Entity.NoticeEntity;
 import com.Streamming.Entity.QueryEntity;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import net.minidev.json.JSONObject;
 import net.minidev.json.parser.JSONParser;
 import net.minidev.json.parser.ParseException;
@@ -15,6 +18,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 @RestController
@@ -30,7 +34,7 @@ public class PillController {
     private String PillUrl;
 
 
-    @RequestMapping(value = "/mypill", method = RequestMethod.POST)
+    @PostMapping("/mypill")
     public JSONObject Search(@RequestBody @Valid QueryEntity queryEntity) throws IOException, ParseException {
         StringBuilder urlBuilder = new StringBuilder(PillUrl); /*URL*/
 
@@ -57,13 +61,24 @@ public class PillController {
         }
         rd.close();
         conn.disconnect();
-        System.out.println(sb);
-
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(sb.toString());
         JSONObject jsonObj = (JSONObject) obj;
 
         return jsonObj;
     }
+
+    @GetMapping("/")
+    public JSONObject notice() throws ParseException, JsonProcessingException {
+        NoticeEntity noticeEntity = new NoticeEntity("공지사항입니다.");
+        String jsonstring = new ObjectMapper().writeValueAsString(noticeEntity);
+
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(jsonstring);
+        JSONObject jsonObj = (JSONObject) obj;
+
+        return jsonObj;
+    }
+
 }
 
