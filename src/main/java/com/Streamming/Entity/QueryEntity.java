@@ -11,5 +11,9 @@ import lombok.NoArgsConstructor;
 public class QueryEntity {
     private int type;
     private String pillName;
-    private String pillNum;
+    //private String pillNum;
+
+
+    // 출력 결과수 5개로 제한하기
+    private final String numOfRows = "5";
 }
