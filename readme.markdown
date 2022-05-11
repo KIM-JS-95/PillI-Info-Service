@@ -1,7 +1,7 @@
-# 배포를 어떻게??
 
+![BE](https://user-images.githubusercontent.com/65659478/167803880-ca17061c-7949-4d4c-b3ca-81d38b3a0dbc.png)
 
-## 알파 테스트
+# 알파 테스트
 알파 테스트를 목적으로 Jenkins - Docker  -Github 으로 구성하여 로컬에서 운영할 계획이다.
 
 1. GitHub push
