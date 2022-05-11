@@ -18,11 +18,19 @@ ENTRYPOINT ["java","-jar","/목표 앱.jar"]
 ```
 
 ```
-docker build -t jartest:1 .
+docker build -t <이미지 이름>:<태그명> <Dockerfile 위치>
 
 docker run -v D:/data/:/application_log -p 8081:8080 -d jartest:1
 ```
 
+
+# Docker 업로드 방법
+
+```
+docker tag ebkm baugh248730/ebkm:1.0.0
+
+docker push baugh248730/ebkm:1.0.0
+```
 ## 베타 테스트
 
 AWS EC2 로 전환하여 배포
