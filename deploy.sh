@@ -26,7 +26,7 @@ echo "bootJar. . ."
 
 echo "DockerFile start... and"
  docker build -t ebkm:latest .
- docker run -itd --name ${container_name} -p 8080:8080 ebkm:latest
+ docker run -itd --name ${container_name} -p 8080:9090 ebkm:latest
 
 
 echo "image push to docker hub"

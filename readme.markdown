@@ -9,27 +9,20 @@
 3. Docker build to image and run Container
 
 
-```docker
-FROM appinair/jdk11-maven
+# jenkins run
 
-COPY 대상 앱.jar 목표 앱.jar
+jenkins 의 기본 포트는 `8080` 이지만 임의로 변경해 줍시다
 
-ENTRYPOINT ["java","-jar","/목표 앱.jar"]
-```
-
-```
-docker build -t <이미지 이름>:<태그명> <Dockerfile 위치>
-
-docker run -v D:/data/:/application_log -p 8081:8080 -d jartest:1
+```bash
+docker run -p -d 9090:8080 -p 50000:50000 jenkins/jenkins
 ```
 
 
 # Docker 업로드 방법
 
 ```
-docker tag ebkm baugh248730/ebkm:1.0.0
-
-docker push baugh248730/ebkm:1.0.0
+docker tag ebkm baugh248730/ebkm:latest
+docker push baugh248730/ebkm:latest
 ```
 ## 베타 테스트
 
