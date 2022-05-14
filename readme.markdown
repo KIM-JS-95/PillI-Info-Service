@@ -1,12 +1,12 @@
-
-<center>
+<div align="center">
 
 # 💊 Project. EBMK 💊
+
 ## Eat Before Knowing The Medicine
 
 ![](presentation/pngegg.ico)
 
-</center>
+</div>
 
 # 💊 INTRO
 ### 「 아들! ‘프로프라놀롤’ 효능이 뭐니? 」
@@ -23,12 +23,15 @@
 
 
 # 💊 Tools
+
 <div align="center">
 
 ## 🍃 Language & FrameWork
+
 ![s](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![s](https://img.shields.io/badge/SPRINGBOOT-6DB33F?style=for-the-badge&logo=SPRINGBOOT&logoColor=white)
 ## 🍃 Infra
+
 ![Docker](https://img.shields.io/badge/docker-2496ED.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![Jenkins](https://img.shields.io/badge/jenkins-D24939.svg?style=for-the-badge&logo=jenkins&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
@@ -55,19 +58,21 @@ medic.client.Decoding="Your Decoding Key"
 
 
 ## 🍃 Step 2
-<center>
+
+<div align="center">
 
 ### ❗❗ 주의사항 ❗❗
 
-#### ❗❗ 다음 `shell`파일은 최종 배포 과정을 자동화하는 자동스크립트 파일 입니다. ❗❗
+#### 다음 `shell`파일은 최종 배포 과정을 자동화하는 자동스크립트 파일 입니다.
 #### 🙅‍♂️ 개인 설정에 맞추어 사용해 주세요. 🙅‍♂️
 
 ### ❗❗ NOTICE ❗❗
 
 
-#### ❗❗ The following 'shell' file is an automated script file that automates the final deployment process. ❗❗
+#### The following 'shell' file is an automated script file that automates the final deployment process.
+
 #### 🙅‍♂️  Please use it according to your personal settings. 🙅‍♂️
-</center>
+</div>
 
 ### deploy.sh
 
@@ -106,16 +111,16 @@ docker push ${repository}:latest
 ```
 
 # 💊 Reference
-<center>
+<div align="center">
 
 <img width="200" height="100" src="https://openmate-on.com/data-on/upload/origin-site-logo/%EA%B3%B5%EA%B3%B5%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%8F%AC%ED%84%B8.png">
 
 
-</center>
+</div>
 
 # 💊 더 자세한 정보는 노션에서 확인해 주세요!
 
-<center>
+<div align="center">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://json0506.notion.site/EBKM-c2fde8692fec4cafb1ac7c647adb7598">
 <img width="100" height="100" src="https://www.inthenews.co.kr/data/photos/uploads/2020/08/%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%85%B8%EC%85%98-%EB%A1%9C%EA%B3%A0.jpg">
@@ -126,4 +131,5 @@ docker push ${repository}:latest
 </a>
 
 🔺 Jason's Notion 으로 이동! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🔺 Front_End Part 로 이동!
-</center>
+
+</div>
