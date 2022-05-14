@@ -22,11 +22,11 @@ docker rmi ${repository}
 
 # jar 파일을 만들고 이미지로 만들기
 echo "bootJar. . ."
- ./gtadlew bootJar
+ ./gradlew build
 
 echo "DockerFile start... and"
  docker build -t ebkm:latest .
- docker run -itd --name ${container_name} -p 8080:9090 ebkm:latest
+ docker run -d --name ${container_name} -p 8080:8080 ebkm:latest
 
 
 echo "image push to docker hub"
