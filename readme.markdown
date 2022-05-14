@@ -23,7 +23,7 @@
 
 
 # 💊 Tools
-<center>
+<div align="center">
 
 ## 🍃 Language & FrameWork
 ![s](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
@@ -32,7 +32,8 @@
 ![Docker](https://img.shields.io/badge/docker-2496ED.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![Jenkins](https://img.shields.io/badge/jenkins-D24939.svg?style=for-the-badge&logo=jenkins&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-232F3E.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
-</center>
+
+</div>
 
 # 💊 구성도
 ![BE](https://user-images.githubusercontent.com/65659478/167803880-ca17061c-7949-4d4c-b3ca-81d38b3a0dbc.png)
@@ -58,17 +59,17 @@ medic.client.Decoding="Your Decoding Key"
 
 ### ❗❗ 주의사항 ❗❗
 
-### ❗❗ 다음 `shell`파일은 최종 배포 과정을 자동화하는 자동스크립트 파일 입니다. ❗❗
-### 🙅‍♂️ 개인 설정에 맞추어 사용해 주세요. 🙅‍♂️
+#### ❗❗ 다음 `shell`파일은 최종 배포 과정을 자동화하는 자동스크립트 파일 입니다. ❗❗
+#### 🙅‍♂️ 개인 설정에 맞추어 사용해 주세요. 🙅‍♂️
 
 ### ❗❗ NOTICE ❗❗
 
 
-### ❗❗ The following 'shell' file is an automated script file that automates the final deployment process. ❗❗
-### 🙅‍♂️  Please use it according to your personal settings. 🙅‍♂️
+#### ❗❗ The following 'shell' file is an automated script file that automates the final deployment process. ❗❗
+#### 🙅‍♂️  Please use it according to your personal settings. 🙅‍♂️
 </center>
 
-###deploy.sh
+### deploy.sh
 
 ```shell
 container_name="Container_name";
