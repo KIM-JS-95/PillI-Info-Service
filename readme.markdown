@@ -1,12 +1,24 @@
+<br>
+<br>
+<br>
+
 <div align="center">
 
 # 💊 Project. EBMK 💊
 
 ## Eat Before Knowing The Medicine
 
+<br>
+<br>
+<br>
+
+
 ![](presentation/pngegg.ico)
 
 </div>
+<br>
+<br>
+<br>
 
 # 💊 INTRO
 ### 「 아들! ‘프로프라놀롤’ 효능이 뭐니? 」
@@ -21,6 +33,9 @@
     I developed it with the desire to take medicine safely to my parents in Korea.
     Don't look it up on the Internet anymore, just search for information!
 
+<br>
+<br>
+<br>
 
 # 💊 Tools
 
@@ -37,6 +52,9 @@
 ![AWS](https://img.shields.io/badge/AWS-232F3E.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 </div>
+<br>
+<br>
+<br>
 
 # 💊 구성도
 ![BE](https://user-images.githubusercontent.com/65659478/167803880-ca17061c-7949-4d4c-b3ca-81d38b3a0dbc.png)
@@ -96,8 +114,6 @@ echo "Docker image remove"
 docker rmi ${repository}
 
 # jar 파일을 만들고 이미지로 만들기
-echo "bootJar. . ."
- ./gradlew build
 
 echo "DockerFile start. . ."
  docker build -t ebkm:latest .
@@ -110,6 +126,14 @@ docker push ${repository}:latest
 
 ```
 
+## 🍃 Using
+### Don't use `deploy.sh`
+### you should this comment
+
+```
+docker-compose up -d
+```
+
 # 💊 Reference
 <div align="center">
 
@@ -117,6 +141,8 @@ docker push ${repository}:latest
 
 
 </div>
+
+<br>
 
 # 💊 더 자세한 정보는 노션에서 확인해 주세요!
 

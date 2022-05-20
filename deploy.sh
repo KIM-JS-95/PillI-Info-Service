@@ -21,12 +21,12 @@ echo "Docker image remove"
 docker rmi ${repository}
 
 # jar 파일을 만들고 이미지로 만들기
-echo "bootJar. . ."
- ./gradlew build
+#echo "bootJar. . ."
+# ./gradlew build
 
 echo "DockerFile start... and"
- docker build -t ebkm:latest .
- docker run -d --name ${container_name} -p 8080:8080 ebkm:latest
+docker build -t ebkm:latest .
+docker run -d --name ${container_name} -p 8080:8080 ebkm:latest
 
 
 echo "image push to docker hub"
