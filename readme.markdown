@@ -4,7 +4,7 @@
 
 <div align="center">
 
-# 💊 Project. EBMK 💊
+# 💊 Project. EBKM 💊
 
 ## Eat Before Knowing The Medicine
 

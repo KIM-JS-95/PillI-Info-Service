@@ -9,7 +9,7 @@ repository="baugh248730/ebkm";
 echo "Container stop and remove";
 
 # shellcheck disable=SC1007
-container_id=$(docker ps -aqf "name= ${container}");
+container_id=$(docker ps -aqf "name= ${container_name}");
 
 echo "Docker : container_id = ${container_id}";
 
@@ -20,15 +20,22 @@ docker rm ${container_id}
 echo "Docker image remove"
 docker rmi ${repository}
 
-# jar 파일을 만들고 이미지로 만들기
-#echo "bootJar. . ."
-# ./gradlew build
+cd proxy
+
+echo "Run Nginx ..."
+docker build -t nginx:test .
+
+echo "Change dir ... "
+cd ..
 
 echo "DockerFile start... and"
 docker build -t ebkm:latest .
-docker run -d --name ${container_name} -p 8080:8080 ebkm:latest
+
+
+echo "Docker compose up start ... "
+docker-compose up -d
 
 
 echo "image push to docker hub"
 docker tag ebkm baugh248730/ebkm:latest
-docker push baugh248730/ebkm:latest
+docker push ${repository}
