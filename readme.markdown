@@ -57,7 +57,8 @@
 <br>
 
 # 💊 구성도
-![BE](https://user-images.githubusercontent.com/65659478/167803880-ca17061c-7949-4d4c-b3ca-81d38b3a0dbc.png)
+
+![BE](./presentation/BE.png)
 
 
 # 💊 Do you want to clone this Repo?
