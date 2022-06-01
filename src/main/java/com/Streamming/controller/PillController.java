@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import net.minidev.json.JSONObject;
 import net.minidev.json.parser.JSONParser;
 import net.minidev.json.parser.ParseException;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,13 +49,14 @@ public class PillController {
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Content-type", "application/json");
 
-        System.out.println("Response code: " + conn.getResponseCode());
+
 
         BufferedReader rd;
         if (conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
             rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         } else {
             rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
+            System.out.println("에러발생!");
         }
 
         StringBuilder sb = new StringBuilder();
@@ -62,6 +64,7 @@ public class PillController {
         while ((line = rd.readLine()) != null) {
             sb.append(line);
         }
+
 
         rd.close();
         conn.disconnect();

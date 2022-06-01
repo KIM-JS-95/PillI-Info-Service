@@ -18,7 +18,7 @@ docker stop ${container_id}
 docker rm ${container_id}
 
 echo "Docker image remove"
-docker rmi ${repository}
+docker rmi ${container_name}
 
 cd proxy
 
@@ -36,6 +36,7 @@ echo "Docker compose up start ... "
 docker-compose up -d
 
 
-echo "image push to docker hub"
-docker tag ebkm baugh248730/ebkm:latest
-docker push ${repository}
+
+#echo "image push to docker hub"
+#docker tag ebkm baugh248730/ebkm:latest
+#docker push ${repository}
