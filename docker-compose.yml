@@ -8,7 +8,7 @@ services:
     environment:
       ENV: DEV
     links:
-      - logstash
+      - logspout
 
   ebkm2:
     container_name: ebkm2
@@ -18,7 +18,7 @@ services:
     environment:
       ENV: DEV
     links:
-      - logstash
+      - logspout
 
   nginx:
     container_name: nginx
@@ -26,31 +26,38 @@ services:
     ports:
       - "80:80"
 
-  elasticsearch:
-    build: elk/elasticsearch/
-    container_name: elasticsearch
+  logspout:
+    container_name: logspout
+    image: gliderlabs/logspout:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    links:
+      - logstash
     ports:
-      - "9200:9200"
-      - "9300:9300"
-    environment:
-      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      - "8000:80"
+    command: syslog+tls://logstash:5000
+    depends_on:
+      - logstash
+      - kibana
+      - elasticsearch
     networks:
       - elk
+    restart: always
 
   logstash:
     build: elk/logstash/
     container_name: logstash
-    command: -f /etc/logstash/conf.d/
     volumes:
       - ./elk/logstash/config:/etc/logstash/conf.d
-    ports:
-      - "9999:9999"
     links:
       - elasticsearch
+    environment:
+      LOGSOUT: ignore
+    command: -f /etc/logstash/conf.d/
+    ports:
+      - "5000:5000"
     networks:
       - elk
-    depends_on:
-      - elasticsearch
 
   kibana:
     build: elk/kibana/
@@ -61,10 +68,28 @@ services:
       - "5601:5601"
     links:
       - elasticsearch
+    environment:
+      LOGSOUT: ignore
+      ELASTICSEARCH_URL: http://elasticsearch:9200
     networks:
       - elk
     depends_on:
       - elasticsearch
+
+
+  elasticsearch:
+    build: elk/elasticsearch/
+    volumes:
+      - ./elk/elasticsearch/config/:/opt/elasticsearch/config/
+    container_name: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xms2g -Xmx2g"
+      discovery.type: single-node
+    networks:
+      - elk
 
 networks:
   elk:
