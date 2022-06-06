@@ -32,8 +32,11 @@ cd ..
 echo "DockerFile start... and"
 docker build -t ebkm:latest .
 
+sudo service docker restart
+sudo chmod 666 /var/run/docker.sock
+
 echo "Docker compose up start ... "
-sudo  docker-compose up -d
+docker-compose up -d
 
 
 
