@@ -36,7 +36,7 @@ docker build -t ebkm:latest .
 sudo chmod 666 /var/run/docker.sock
 
 echo "Docker compose up start ... "
-sudo docker-compose up -d
+sudo service docker start && docker-compose up -d
 
 
 
