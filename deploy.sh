@@ -28,6 +28,7 @@ docker build -t nginx:test .
 echo "Change dir ... "
 cd ..
 
+# gradle build
 echo "DockerFile start... and"
 docker build -t ebkm:latest .
 
