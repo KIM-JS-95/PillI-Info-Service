@@ -26,71 +26,71 @@ services:
     ports:
       - "80:80"
 
-  logspout:
-    container_name: logspout
-    image: gliderlabs/logspout:latest
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    links:
-      - logstash
-    ports:
-      - "8000:80"
-    command: syslog+tls://logstash:5000
-    depends_on:
-      - logstash
-      - kibana
-      - elasticsearch
-    networks:
-      - elk
-    restart: always
-
-  logstash:
-    build: elk/logstash/
-    container_name: logstash
-    volumes:
-      - ./elk/logstash/config:/etc/logstash/conf.d
-    links:
-      - elasticsearch
-    environment:
-      LOGSOUT: ignore
-    command: -f /etc/logstash/conf.d/
-    ports:
-      - "5000:5000"
-    networks:
-      - elk
-
-  kibana:
-    build: elk/kibana/
-    container_name: kibana
-    volumes:
-      - ./elk/kibana/config/:/opt/kibana/config/
-    ports:
-      - "5601:5601"
-    links:
-      - elasticsearch
-    environment:
-      LOGSOUT: ignore
-      ELASTICSEARCH_URL: http://elasticsearch:9200
-    networks:
-      - elk
-    depends_on:
-      - elasticsearch
-
-
-  elasticsearch:
-    build: elk/elasticsearch/
-    volumes:
-      - ./elk/elasticsearch/config/:/opt/elasticsearch/config/
-    container_name: elasticsearch
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    environment:
-      ES_JAVA_OPTS: "-Xms2g -Xmx2g"
-      discovery.type: single-node
-    networks:
-      - elk
-
-networks:
-  elk:
-    driver: bridge
+#  logspout:
+#    container_name: logspout
+#    image: gliderlabs/logspout:latest
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#    links:
+#      - logstash
+#    ports:
+#      - "8000:80"
+#    command: syslog+tls://logstash:5000
+#    depends_on:
+#      - logstash
+#      - kibana
+#      - elasticsearch
+#    networks:
+#      - elk
+#    restart: always
+#
+#  logstash:
+#    build: elk/logstash/
+#    container_name: logstash
+#    volumes:
+#      - ./elk/logstash/config:/etc/logstash/conf.d
+#    links:
+#      - elasticsearch
+#    environment:
+#      LOGSOUT: ignore
+#    command: -f /etc/logstash/conf.d/
+#    ports:
+#      - "5000:5000"
+#    networks:
+#      - elk
+#
+#  kibana:
+#    build: elk/kibana/
+#    container_name: kibana
+#    volumes:
+#      - ./elk/kibana/config/:/opt/kibana/config/
+#    ports:
+#      - "5601:5601"
+#    links:
+#      - elasticsearch
+#    environment:
+#      LOGSOUT: ignore
+#      ELASTICSEARCH_URL: http://elasticsearch:9200
+#    networks:
+#      - elk
+#    depends_on:
+#      - elasticsearch
+#
+#
+#  elasticsearch:
+#    build: elk/elasticsearch/
+#    volumes:
+#      - ./elk/elasticsearch/config/:/opt/elasticsearch/config/
+#    container_name: elasticsearch
+#    ports:
+#      - "9200:9200"
+#      - "9300:9300"
+#    environment:
+#      ES_JAVA_OPTS: "-Xms2g -Xmx2g"
+#      discovery.type: single-node
+#    networks:
+#      - elk
+#
+#networks:
+#  elk:
+#    driver: bridge
