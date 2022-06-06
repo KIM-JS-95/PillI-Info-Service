@@ -62,6 +62,7 @@
 
 
 # 💊 Do you want to clone this Repo?
+
 ## 🍃 Step 1
 - Add application.properties
   - [공공데이터포털](https://www.data.go.kr/) 에서 `Open_API`를 적용해 주세요. 

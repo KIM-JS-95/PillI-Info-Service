@@ -4,7 +4,7 @@ services:
     container_name: ebkm1
     image: "ebkm:latest"
     ports:
-      - "8080:8080"
+      - "9090:9090"
     environment:
       ENV: DEV
     links:
@@ -14,7 +14,7 @@ services:
     container_name: ebkm2
     image: "ebkm:latest"
     ports:
-      - "8081:8080"
+      - "9091:9090"
     environment:
       ENV: DEV
     links:
