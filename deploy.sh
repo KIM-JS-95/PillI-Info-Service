@@ -36,7 +36,7 @@ docker build -t ebkm:latest .
 sudo chmod 666 /var/run/docker.sock
 
 echo "Docker compose up start ... "
-sudo service jenkins restart && docker-compose up -d
+sudo service docker restart && docker-compose up -d
 
 
 
