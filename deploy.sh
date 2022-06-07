@@ -30,7 +30,10 @@ cd ..
 
 # gradle build
 echo "DockerFile start... and"
+
 docker build -t ebkm:latest .
+
+echo "DockerFile clear !!!"
 
 echo "Docker compose up start ... "
 docker-compose up -d
