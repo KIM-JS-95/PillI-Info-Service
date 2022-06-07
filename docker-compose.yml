@@ -2,7 +2,7 @@ version: '3.0'
 services:
   ebkm1:
     container_name: ebkm1
-    image: "ebkm:latest"
+    build: "ebkm:latest"
     ports:
       - "9090:9090"
     environment:
@@ -14,7 +14,7 @@ services:
 
   ebkm2:
     container_name: ebkm2
-    image: "ebkm:latest"
+    build: "ebkm:latest"
     ports:
       - "9091:9090"
     environment:
