@@ -36,7 +36,8 @@ docker build -t ebkm:latest .
 echo "DockerFile clear !!!"
 
 
-docker login docker login --username=baugh248730 --password=wotjd@487
+sudo cat my_password.txt | docker login --username baugh248730 --password wotjd@487
+
 echo "Docker compose up start ... "
 docker-compose up -d
 
